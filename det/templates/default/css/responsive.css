@@ -1,0 +1,1199 @@
+/*small desktops*/
+@media (min-width:992px) and (max-width: 1090px){
+    .hidden-default{
+        display: block;
+    }
+
+    .hidden-small-desktop{
+        display: none;
+    }
+
+    div#top-band{
+        min-width: 0;
+    }
+
+    div#top-band-content,
+    .centeredtop,
+    #header,
+    .menu,
+    .centeres,
+    #menu,
+    #menu-top,
+    ul#topnav,
+    ul#topnav li span,
+    .home-page,
+    .footer,
+    .bk-grey-long{
+        width: 960px;
+    }
+
+    .header-social{
+        float: left;
+    }
+
+    .header-social p{
+        display: inline-block;
+    }
+
+    #header-3{
+        width: 350px;
+    }
+
+    #header-2{
+        width: 194px;
+        float: right;
+    }
+    #header-4{
+        display: none;
+    }
+
+    ul#topnav li a{
+        padding: 0 9px;
+        font-size: 11px;
+    }
+
+    .home-page-left{
+        width: 648px;
+    }
+
+    .block-left-home{
+        width: 630px;
+    }
+
+    .block-left-home-inside{
+        width: 314px;
+    }
+    .block-left-home-inside-text{
+        width: 253px;
+    }
+    
+    .block-left-secondary-page{
+        width: 630px;
+    }
+
+    .block-left-secondary-page-inside{
+        width: 314px;
+    }
+    .block-left-secondary-page-inside-text{
+        width: 253px;
+    }
+    
+
+    #calendar-container ul{
+        width: 1025px;
+    }
+
+    .fixedepisodetopadd{
+        margin-left: 787px;
+    }
+
+    .episode-wrap1{
+        width: 765px;
+    }
+
+    #myTable{
+        width: 750px;
+    }
+
+    .episode-summary .nextprev{
+        /*width: 400px;*/
+        /*margin: 0;*/
+        /*padding: 40px 0 0 70px;*/
+    }
+
+
+    /*search*/
+    .search-item{
+        height: 130px;
+    }
+    .search-item-left{
+        width: 550px;
+    }
+    .search-item-left img{
+        margin-bottom: 30px;
+    }
+
+    /*category*/
+    .listings li.category-item,
+    .listings li.category-item-ad{
+        width: 350px;
+        padding: 3px;
+        margin: 5px;
+    }
+
+    .listings li.category-item ._image_container.tv{
+        float: left;
+        width: 100px;
+    }
+
+    #calendar .listings li{
+        width: 208px;
+    }
+
+    .show-summary p{
+        width: 530px;
+    }
+    
+    .tracked-show-container .airs {margin-top:0; width:95%;}
+}
+
+/*tablets*/
+@media (min-width:768px) and (max-width: 991px) {
+    .hidden-tablet{
+        display: none;
+    }
+    .hidden-default{
+        display: block;
+    }
+
+    div#top-band{
+        min-width: 0;
+    }
+
+    div#top-band-content,
+    .centeredtop,
+    #header,
+    .menu,
+    .centeres,
+    #menu,
+    #menu-top,
+    ul#topnav,
+    ul#topnav li span,
+    .home-page,
+    .footer,
+    .bk-grey-long{
+        width: 740px;
+    }
+    div#top-band{
+        height: 80px;
+    }
+
+    .header-social{
+        float: none;
+        width: 210px;
+        margin: 0 auto;
+    }
+
+    .header-social p{
+        display: inline-block;
+    }
+
+    .sign_in{
+        position: absolute;
+        top: 36px;
+        float: none;
+        width: 600px;
+        margin-left: 70px;
+        margin-top: 5px;
+        text-align: left;
+    }
+
+    #header{
+        margin-top: 80px;
+    }
+
+    #header-1{
+        width: auto;
+    }
+    #header-2{
+        width: 194px;
+        float: right;
+    }
+
+    #header-3{
+        width: 255px;
+        margin: 0 5px;
+    }
+    #header-4{
+        display: none;
+    }
+
+    .search-box, .main.blueprint-span-5 > div.search-box{
+        width: 100%;
+    }
+
+    .search-box input[type="text"]{
+        width: 185px;
+    }
+
+    #menu-top{
+        height: 85px;
+    }
+        #topnav{
+            text-align: center;
+        }
+
+        ul#topnav li{
+            display: inline-block;
+            float: none;
+        }
+
+        ul#topnav li span{
+            top: 80px;
+        }
+            ul#topnav li span a{
+                padding: 0 3px;
+            }
+
+    .home-page-left{
+        width: 740px;
+    }
+
+    .home-page-right{
+        float: none;
+        margin: 0 auto;
+        clear:both;
+        background: #fff;
+    }
+
+    .home-page-right .ad_300_250,
+    .home-page-right .facebookOuter{
+        margin: 0 auto;
+    }
+
+    .block-right-home-inside{
+        background-color: #fff;
+    }
+    
+    .block-left-home-inside-text{
+        width: 280px;
+    }
+    
+    .block-left-secondary-page{
+        width: 100%;
+    }
+
+    .block-left-secondary-page-inside{
+        width: 49%;
+    }
+    .block-left-secondary-page-inside-text{
+        width: 253px;
+    }
+    
+
+    #calendar-container ul{
+        width: 1025px;
+    }
+
+    /*episode page*/
+    .episode-wrap1{
+        width: 714px;
+    }
+
+    #myTable{
+        width: 692px;
+    }
+    .sp-leader{
+        width: 692px;
+    }
+
+    .fixedepisodetopadd,
+    .sp-leader,
+    .sp-sidetower,
+    .sp-leader-bottom{
+        display: none;
+    }
+
+    .episode-summary .nextprev{
+        /*width: 400px;*/
+        /*margin: 0;*/
+        /*padding: 40px 0 0 70px;*/
+    }
+
+    .home-page-right{
+        width: 100%;
+    }
+
+    .block-right-home{
+        width: 100%;
+    }
+    .block-right-home-inside-image{
+        margin-left: 200px;
+        margin-right: 20px;
+    }
+    .block-right-home-inside-text{
+        width: 340px;
+    }
+
+    /*search*/
+    .search-item{
+        height: 150px;
+    }
+    .search-item-left{
+        width: 510px;
+    }
+    .search-item-left img{
+        margin-bottom: 30px;
+    }
+
+    /*category*/
+    .listings li.category-item,
+    .listings li.category-item-ad{
+        width: 320px;
+        padding: 3px;
+        margin: 5px;
+        height: 200px;
+    }
+
+    .listings li.category-item-ad{
+        height: 400px;
+        padding: 70px 0;
+    }
+
+    .listings li.category-item ._image_container.tv{
+        float: left;
+        width: 100px;
+    }
+
+    .listings li.category-item .info{
+        float:left;
+        width:200px;
+        overflow: hidden;
+    }
+
+    .show-summary p{
+        width: 470px;
+    }
+
+    .fullwrap{
+        min-height: 400px;
+    }
+
+    /*user profile*/
+    .sign_in_profile{
+        text-align: center;
+        width: 740px;
+        position: absolute;
+        left: 0;
+        margin: 45px 0 0 0;
+    }
+    .sign_in_profile li{
+        float: none;
+        display: inline-block;
+        padding: 0 10px;
+        margin: 0;
+    }
+
+    .my-listings .calendars ol.calendar{
+        width: 100%;
+    }
+    .my-listings .calendars li li{
+        width: 19%;
+        box-sizing: border-box;
+        padding: 0.5%;
+        margin: 0.5%;
+    }
+    
+    
+    .tracked-show-container .airs {margin-top:0; width:90%;}
+}
+
+/*phones*/
+@media (max-width: 767px) {
+    body{
+        background-color: #55abca;
+    }
+    .show-phone,
+    .hidden-default{
+        display: block;
+    }
+
+    .hidden-phone{
+        display: none;
+    }
+    div#top-band{
+        min-width: 0;
+    }
+
+    .centeredtop,
+    .centeres{
+        width: 95%;
+    }
+
+    .centeres{
+        margin-bottom: 47px;
+    }
+
+    div#top-band-content,
+    #header,
+    .menu,
+    #menu,
+    #menu-top,
+    ul#topnav,
+    ul#topnav li span,
+    .home-page,
+    .footer,
+    .bk-grey-long{
+        width: 100%;
+    }
+    #header{
+        background-color: #fff;
+    }
+
+    .a-el{
+        display: none;
+    }
+    .bg-tr{
+        padding: 0;
+    }
+    .bg-casing-tr{
+        padding: 0 5px;
+    }
+    .bg-casing-top{
+        /*background: #fff;*/
+    }
+
+    div#top-band{
+        height: 45px;
+        position: absolute;
+    }
+
+    div#top-band .sign_in{
+        display: none;
+    }
+    div#top-band .header-social{
+        width: 290px;
+        margin: 5px auto;
+        float: none;
+    }
+
+    #menu .sign_in{
+        display: block;
+    }
+
+    .header-social{
+        width: 200px;
+        margin: 0 auto;
+    }
+
+    .header-social p{
+        display: inline-block;
+    }
+
+    .sign_in{
+        width: 100%;
+        float: none;
+        padding: 0;
+        margin: 0;
+    }
+    .sign_in li{
+        padding: 10px 0;
+        float: none;
+        display: block;
+        text-align: center;
+
+        border-top: 1px solid #404040;
+        height: 45px;
+    }
+        .sign_in li:last-child{
+            border-top: 1px solid #404040;
+        }
+    .sign_in li a{
+        float: none;
+        display: inline-block;
+
+    }
+
+    #header{
+        height: 150px;
+        margin-top: 45px;
+    }
+
+    #header-1{
+        width: 280px;
+        margin: 0 auto;
+        float: none;
+    }
+    #header-1 a{
+        display: block;
+        float: left;
+        margin-top: 10px;
+    }
+    #header-1 a img{
+        width: 218px;
+    }
+    #header-2{
+        display: none;
+        width: 195px;
+        margin-top: 10px;
+        float: left;
+    }
+
+    #header-3{
+        width: 300px;
+        height: 35px;
+        margin: 0 auto;
+        float: none;
+    }
+    #header-4{
+        display: block;
+        float: right;
+        margin: 15px 0 0 0;
+        width: 50px;
+        height: 50px;
+
+        background-image: url('../images/menu-icon.png');
+        cursor: pointer;
+    }
+
+    #rotating-item-wrapper{
+        display: none;
+    }
+
+    .search-box, .main.blueprint-span-5 > div.search-box{
+        width: 100%;
+    }
+
+    .search-box input[type="text"]{
+        width: 230px;
+    }
+    #menu{
+        height: auto;
+        display: none;
+    }
+    #menu-top{
+        height: auto;
+        float: none;
+    }
+
+    .menu-social{
+        width: 210px;
+        margin: 20px auto 0;
+    }
+
+    .menu-social p{
+        display: inline-block;
+    }
+
+    ul#topnav{
+        float: none;
+    }
+    ul#topnav li.how-to-watch{
+        float: none;
+    }
+
+    ul#topnav li.how-to-watch a{
+        width: auto;
+        background: none;
+        color: #f0f0f0;
+        border:none;
+        font-weight: normal;
+        line-height: 38px;
+    }
+
+    ul#topnav li span{
+        float: none;
+        position: relative;
+
+        height: auto;
+        background-color: #363636;
+        top: 0;
+    }
+    ul#topnav li span a{
+        display: block;
+    }
+
+    ul#topnav li a,
+    ul#topnav li.how-to-watch a{
+        border-bottom: 1px solid #404040;
+    }
+
+
+    ul#topnav li{
+        float: none;
+    }
+
+    .notify{
+        height: 60px;
+    }
+
+    .home-page-left{
+        width: 100%;
+    }
+
+    .home-page-right{
+        padding: 0;
+        width: 100%;
+        background: #fff;
+    }
+    .home-page-right .ad_300_250{
+        margin: 0 auto;
+    }
+    .home-page-right .facebookOuter{
+        margin: 0 auto;
+    }
+
+    .block-right-home{
+        width: 100%;
+    }
+    .block-right-home-inside{
+        background: none;
+    }
+    .block-right-home-inside-image{
+        width: 15%;
+        margin: 5px 0;
+        text-align: center;
+    }
+        .block-right-home-inside-image .ih-item{
+            text-align: center;
+            width: auto !important;
+        }
+    .block-right-home-inside-image a{
+        display: inline-block;
+    }
+    .block-right-home-inside-text{
+        width: 85%;
+        padding-right: 2%;
+    }
+
+
+
+
+    .block-left-home{
+        width: 100%;
+        border: none;
+    }
+
+    .block-left-home-inside{
+        width: 100%;
+        border-right: none;
+    }
+    .block-left-home-inside-image{
+        width: 15%;
+        margin: 5px 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+    }
+        .block-left-home-inside-image .ih-item{
+            width:auto !important;
+        }
+
+    .block-left-home-inside-image a{
+            display: inline-block;
+    }
+    .block-left-home-inside-text{
+        width: 85%;
+        padding-right: 2%;
+    }
+
+
+
+
+
+
+
+    .block-left-secondary-page{
+        width: 100%;
+        border: none;
+    }
+
+    .block-left-secondary-page-inside{
+        width: 100%;
+        border-right: none;
+    }
+    .block-left-secondary-page-inside-image{
+        width: 20%;
+        margin: 5px 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .block-left-secondary-page-inside-image a{
+            display: inline-block;
+        }
+    .block-left-secondary-page-inside-text{
+        width: 78%;
+        padding-right: 2%;
+    }
+    
+    
+
+    .home-calendar #calendar-container{
+        height: auto;
+    }
+
+    .calendar-wrapper ul li{
+        float: left;
+        width: 100%;
+    }
+
+
+
+    .home-calendar #calendar-container .jcarousel-clip li.jcarousel-item{
+        width: 303px;
+    }
+
+    .footer{
+        position: relative;
+        height: auto;
+        z-index: 999999;
+    }
+
+    .fixedepisodetopadd,
+    .sp-leader,
+    .sp-sidetower,
+    .sp-leader-bottom{
+        display: none;
+    }
+
+    /*episode page*/
+    .episode-wrap1{
+        width: 100%;
+    }
+
+    .episode-social{
+        position: absolute;
+        width: 172px;
+        height: 30px;
+
+
+        bottom: 57px;
+        top: inherit;
+        left: 50%;
+        margin: 0 0 0 -73px;
+        padding-top: 1px;
+    }
+    .episode-social .at-share-btn-elements{
+        text-align: center;
+    }
+
+    .episode-social-btn{
+        position: absolute;
+        width: 60px;
+        margin: 0 5px 0 5px;
+
+        bottom: 57px;
+    }
+    .episode-social-btn.social-tw{
+        left: 50%;
+        margin-left: -63px;
+    }
+
+    .episode-social-btn.social-fb{
+        left: 50%;
+        margin-left: 7px;
+    }
+    .episode-summary .shd_button{
+        position: absolute;
+        left: 50%;
+        margin-left: -40px;
+        bottom: 95px;
+    }
+
+    .episode-summary .nextprev{
+        position: relative;
+        top: 13px;
+        clear:both;
+        float: none;
+        padding-top: 10px;
+        width: 290px;
+    }
+        .episode-summary .nextprev a{
+            padding: 2px 5px;
+        }
+        .episode-summary .nextprev a.button-previous{
+            float: left;
+        }
+
+        .episode-summary .nextprev a.button-next{
+            float: right;
+        }
+
+            .episode-summary .nextprev a span{
+                display: none;
+            }
+
+
+
+
+    .episode-summary{
+        position: relative;
+        padding-bottom: 63px;
+
+    }
+    .episode-summary .episode-buttons{
+        width: 100%;
+        position: absolute;
+        float: none;
+        bottom: 10px;
+
+        left: 0;
+        right: auto;
+        margin-left: 0;
+
+        text-align: center;
+    }
+
+        .episode-summary .episode-buttons a{
+            display: inline-block;
+            width: auto;
+
+            padding: 0 5px;
+            margin: 1px;
+        }
+
+        .episode-summary .episode-buttons a i{
+            display: none;
+        }
+
+        .episode-summary .episode-buttons a:first-child{
+            margin-top: -10px;
+        }
+
+
+
+
+
+    label.custom-select{
+        margin: 0;
+        float: right;
+        width: 115px;
+
+        font-size: 12px !important;
+    }
+    label.custom-select select{
+        width: 115px !important;
+    }
+
+    #myTable{
+        width: 100%;
+    }
+        #linktable #myTable td:nth-child(3){
+            display: none;
+        }
+
+
+        #linktable{
+
+        }
+
+    .sp-leader{
+        width: 264px;
+    }
+
+    #myTable .buttonlink{
+        border: none;
+    }
+
+    #myTable td{
+        padding: 3px 5px;
+    }
+
+    .npbutton{
+        padding: 5px 11px;
+        background: none;
+    }
+
+    /*search*/
+    #search_sort_container{
+        display: block;
+        float: none;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    #search_sort_container select{
+        width: 150px;
+    }
+
+    .search-item{
+        height: auto;
+        padding-top: 10px;
+        padding-bottom:15px;
+    }
+    .search-item-left{
+        width: 100%;
+        padding-top: 10px;
+    }
+    .search-item-right{
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .search-item-right a{
+        float: left;
+        margin: 0;
+        width: 120px;
+    }
+    .search-item-right a:last-child{
+        float: right;
+    }
+
+
+    /*category*/
+    .channel-title{
+        position: relative;
+    }
+    .channel-title > a.push_button.red{
+        position: absolute;
+        top: 60px;
+        left: 63px;
+    }
+
+
+    .listings{
+        padding-top: 40px;
+    }
+    .listings li.category-item,
+    .listings li.category-item-ad{
+        position: relative;
+        width: 100%;
+        padding: 3px 0;
+        margin: 5px 0;
+        height: auto;
+        border-width: 1px;
+        border-right: 0;
+    }
+    .listings li.category-item .epnum{
+        position: absolute;
+      
+        top: 25px;
+        text-align: left;
+    }
+
+    .listings li.category-item ._image_container.tv{
+        width: 35%;
+        text-align: center;
+        float: left;
+        margin: 15px 0 10px 0;
+    }
+
+    .listings li.category-item .info{
+        width: 65%;
+    }
+
+    .listings li.category-item .description{
+        padding-top: 15px;
+    }
+
+    .pagination>li{
+        display: inline-block;
+        margin: 7px 0;
+    }
+
+    select{
+        width: 250px;
+    }
+    textarea{
+        width: 250px;
+    }
+
+
+    /*login/register*/
+    .fbc-login-button-big,
+    .twt-login-button-big,
+    .google-login-button-big{
+        width: 270px;
+        margin-left: -3px;
+    }
+
+    #recaptcha_widget_div{
+        margin-left: -8px;
+        transform: scale(0.95,0.95);
+    }
+    /*show page*/
+
+    .show-summary{
+        position: relative;
+        padding-bottom: 70px;
+    }
+    .show-summary a.show-image{
+        float: left;
+        margin: 0 5px 5px 0;
+    }
+    .show-summary p{
+        width: auto;
+    }
+    .show-summary .show-buttons{
+        width: 100%;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        margin-left: 0;
+        text-align: center;
+    }
+
+        .show-summary .show-buttons a{
+            display: inline-block;
+            width: auto;
+
+            padding: 0 5px;
+            margin: 1px;
+        }
+
+        .show-summary .show-buttons a i{
+            display: none;
+        }
+
+        .show-summary .show-buttons a:first-child{
+            margin-top: -10px;
+        }
+
+    .show-social{
+        width: 290px;
+        position: absolute;
+        bottom: 30px;
+
+        left: 50%;
+        margin-left: -130px;
+    }
+
+    .show-buttons{
+        top: auto;
+        bottom: 0;
+        left: 40px;
+    }
+
+    .all-letter{
+        float: none;
+        margin: 0;
+        text-align: center;
+    }
+    .all-letter a{
+        display: inline-block;
+    }
+
+    #right .show-listings.listings li a,
+    #left .show-listings.listings li a{
+        padding-right: 115px;
+    }
+
+    /*other pages*/
+    #left, #right{
+        width: 100%;
+    }
+    #right{
+        margin-top: 0;
+    }
+
+    #right .listings,
+    #left .listings{
+        padding-top: 0;
+    }
+
+    #right .listings li a,
+    #left .listings li a{
+        display: block;
+        position: relative;
+        padding-right: 65px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #right .listings li .epnum,
+    #left .listings li .epnum{
+        position: absolute;
+        right: 6px;
+    }
+
+    #right .listings li,
+    #left .listings li{
+        border: 1px solid #e8eef7;
+        border-top-width: 0;
+    }
+
+    #left .listings li:first-child,
+    #right .listings li:first-child{
+        border-top-width: 1px;
+    }
+
+    #calendar .listings li:first-of-type{
+        border-top-width: 1px;
+    }
+    #calendar .listings li{
+        width: 100%;
+    }
+
+
+    /*profile*/
+    #profiletabs .ui-tabs .ui-tabs-nav li a{
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .sign_in a,
+    .sign_in li{
+        color: #fff;
+        font-weight: normal;
+    }
+    .sign_in li:last-child{
+        border-bottom: 1px solid #404040;
+    }
+
+    #tracked-tv-shows-options .two.fourth{
+        width: 100%;
+    }
+    #tracked-tv-shows-options .one.half.pull-right{
+        width: 100%;
+        text-align: left;
+    }
+
+    .status-filters.pull-right{
+        float: left!important;
+    }
+    .episode-header.row{
+        margin-bottom: 10px;
+    }
+
+
+    .my-listings .calendars ol.calendar{
+        width: 100%;
+    }
+    .my-listings .calendars li li{
+        width: 49%;
+    }
+
+    .home-page-left{
+        background: #fff url('../images/casing-home-top.png') repeat-x;
+    }
+
+    h1.channel-title{
+        padding-top: 10px;
+    }
+    
+    
+    .tracked-show-container .airs {margin-top:0; width:110%; clear:both;}
+    .tracked-show-container .show-buttons {clear:both; position:relative; margin-top:10px;}
+    
+    .morecomments {line-height:16px; padding:10px;}
+    .footer {padding-bottom:20px;}
+    
+    
+    #scroll_comments{
+    	display:none;
+    }
+
+
+    /*comments add body to override*/
+    body .add-comment form .add-comment-form > div .alt button{
+        top:inherit;
+        left: 0;
+        width: 100%;
+    }
+    body .loginbox{
+        width: 100%;
+        padding-bottom: 25px;
+    }
+    body .boxinput{
+        padding: 10px;
+    }
+
+    body #recaptcha_comment{
+        text-align: center;
+    }
+
+    body #recaptcha_comment>div{
+        display: inline-block;
+    }
+}
+
+/*phones*/
+@media (max-width: 374px) {
+    #linktable #myTable a span{
+        display: none;
+    }
+}
