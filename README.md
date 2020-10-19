@@ -4,3 +4,4 @@ Web scraper for videos
 Stream only
 Served on port :19188
 css commits welcome!! 
+https://github.com/cjd166/Gotv/releases
