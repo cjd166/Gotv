@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html allowfullscreen="true">
+<head>
+<meta charset="utf-8"></meta>
+<style>
+/* The Modal (background) */
+.vid {
+	width: 100%;
+	height: 100%
+	}
+.modal {
+    display: none; /* Hidden by default */
+	
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    /* padding-top: 100px;  Location of the box */ 
+    left: 0;
+    top: 0;
+	
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+	
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+     margin: auto; 
+     padding: 20px; 
+    border: 1px solid #888;
+    width: 100%;
+	height 100%;
+}
+
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+z-index: 2;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+</style>
+<script type="text/javascript" src="/det/hls/hls.js"></script>
+</head>
+<body>
+<h1>GOWATCH</h1>
+<div id="vidModal" class="modal">
+</div>
+<div id="searchDiv">
+	<input type="text" id="searchIn" name="Search" placeholder="Search Series ;)"><br>
+	<button class="Search-btn" id="btn_search" onclick="search(event, 'searchIn')">Search a series</button>
+	</div>
+<div id="sResults">
+	<ul class="resultlink" id="resultLink"></ul>
+
+</div>
+	
+<div id="invis" style="display : none;"></div>
+	<script>
+	var url = window.location.href;
+	url = url.replace("http://", "");
+	var socket = new WebSocket("ws:" + url + "ws/");
+	
+
+
+function search(e, id){
+	var showName = document.getElementById(id).value;
+	var searchQ = "search~" + showName;
+	
+			socket.send(searchQ);
+				
+	var resList = document.getElementById("resultLink");
+					resList.innerHTML = '';
+	}
+	
+socket.onmessage = function(e){
+					var message = e.data;
+					console.log("message:" + message)
+					var info = message.split("~");
+					console.log(info[1]);
+					var resList = document.getElementById("resultLink");
+					switch (info[0]) {
+						case "search":
+							var sermessage = message.replace("search", "downloadSeries");
+							resList.innerHTML += '<ul id="ul' + info[1] + '">\
+								<li id="li' + info[1] + '">\
+								<button id="' + info[2]+'" value="' + info[1] + '" onclick="selectSeries(this.id)" >' + info[1] +'</button>\
+								<button id="' + sermessage + '" value="' + sermessage + '" onclick="downloadSeries(this.id)" > GET THE SERIES:)</button></li></ul>';
+							break;
+						case "selectSeries":
+							var selName = info[1];
+							var season = info[3];
+							var episode = info[4];
+							var rmessage = message.replace("selectSeries", "episode");
+							var dsmessage = message.replace("selectSeries", "downloadSeason");
+			
+							var showLi = document.getElementById('li' + selName);
+							var resList = document.getElementById("resultLink");
+					
+						if (document.getElementById('ul season' + info[1] + info[3]) == null){
+							
+							showLi.innerHTML += '<ul id="ul season' + info[1] + info[3] + '">\
+								<li id="li' + info[1] + info[3] + '">\
+								<button id="' + info[3] + '" value="' + info[1] + info[3] + '" onclick="selectSeason(this.id)" >' + info[3] +'</button>\
+								<button id="dls' + info[3] + '" value="' + dsmessage + '~" onclick="downloadSeason(this.id)" >' + info[3] +'</button></li></ul>';
+							}
+							var seasonUl = document.getElementById('ul season' + info[1] + info[3]);
+								seasonUl.innerHTML += '<ul class="cl' + info[1] + info[3] + '" id="ul episodes' + info[3] + '_' + info[4] + '" style="display:none" >\
+									<li id="li' + info[3] + '_' + info[4] + '">\
+									<button id="' + info[3] + '_' + info[4] + '" value="' + rmessage + '" onclick="selectEpisode(this.id)" class="elink" >' + info[3] + '_' + info[4] + '</button></li></ul>';
+							break;
+						case "m3u8":
+							var pl = encodeURI(info[1]); 
+							var modal = document.getElementById("vidModal"); 
+							var nid = '"vid_' + info[4] + '_' + info[5] +'"';
+							if (modal.style.display == "block" && document.getElementsByClassName("vid")[0].src.includes("blob")){								
+								var link = pl;
+								var vlks = document.getElementById("vlks");				
+								vlks.innerHTML += '<li class="link">'+ info[1] +'</li>';
+								
+							}else{
+       				
+								modal.innerHTML = '<span class="close" onclick=nextEps('+nid+')>&rarr;</span><span class="close" onclick="Close()">&times;</span><video id="vid_' + info[4] + '_' + info[5] + '" class="vid" onerror="secure(this.id)" onended="nextEps(this.id)" controls ></video><div id="vlks" style="display:none;"><div>';
+								modal.style.display = "block";
+								
+								var video = document.getElementsByClassName("vid")[0];
+								if (video.canPlayType('application/vnd.apple.mpegurl')){
+									video.src = pl ;
+									}else{
+									
+								if(Hls.isSupported()) {
+							
+							
+							var hls = new Hls({
+								debug: false
+							});
+							console.log('yes', video);
+							var enc = new TextEncoder("utf-8");
+							
+							hls.loadSource(pl);
+							hls.attachMedia(video);
+							hls.on(Hls.Events.MEDIA_ATTACHED, function() {
+							//video.muted = true;
+							video.play();
+							console.log('fk');
+								});
+								}
+								}}
+						case "video":
+							var nid = '"vid_' + info[4] + '_' + info[5] + '"';
+							var modal = document.getElementById("vidModal"); 
+							var link = info[1];
+							
+								if (modal.style.display == "block"){
+									
+									var vlm = document.getElementsByClassName("vid");
+									var vln = '"'+ vlm[0].id + '"';
+									console.log(vln, nid);
+									if (vln != nid){modal.style.display = "none";modal.innerHTML = "";}
+
+								if (vln == nid) {																
+								var vlks = document.getElementById("vlks");
+								vlks.innerHTML += '<li class="link">'+ info[1] +'</li>';
+								}
+							
+								}else{
+								modal.innerHTML = '<span class="close" onclick=nextEps('+nid+')>&rarr;</span><span class="close" onclick="Close()">&times;</span><video id="vid_' + info[4] + '_' + info[5] + '" class="vid" controls autoplay onerror="secure(this.id)" onended="nextEps(this.id)" src="' + info[1] + '"></video><div id="vlks" style="display:none;"><div>';
+							modal.style.display = "block";
+							var link = pl;
+								var vlks = document.getElementById("vlks");				
+								vlks.innerHTML += '<li class="link">'+ info[1] +'</li>';
+							}
+							
+							
+					console.log(info[0], info[1], info[3], info[4]);
+							break;
+						
+						case "eFrame":
+							var iv = document.getElementById('invis');
+							var ms = info[3]+ "~" +info[4]+ "~" +info[5]+ "~" +info[6]+ "~" +info[7];
+							iv.innerHTML += '<iframe id="' + info[7] + '~' + info[1] +'" onload="sk(this.id)" data-extra="' + ms + '"src="' + info[1] + '"></iframe>';
+							break;
+						case "cartoon":
+							console.log(info[1] + info[2]);
+							var carin = info[1] + '~' +info[3] + '~' + info[4] + '~' + info[5] + '~' + info[6] + '~' + info[7] + '~' + info[2];
+							console.log(message);
+							eval(carin);
+							break;
+					}
+					}
+		function selectEpisode(id){
+		var sendm = document.getElementById(id).value;
+		var Hoppe = document.getElementById("resultLink");
+		
+		socket.send(sendm);
+		console.log(sendm);
+		}
+	function selectSeries(id){
+	var chel = document.getElementById('ul' + id);
+	var showName = document.getElementById(id).value;
+	var resList = document.getElementById("resultLink");
+	resList.innerHTML = '<ul id="ul' + showName + '">\
+							<li id="li' + showName + '">\
+							<button id="' + showName + '" value="' + showName + '" onclick="selectSeries(this.id)" >' + showName +'</button></li></ul>';
+		var selectQ = "select~" + showName + "~" + id;
+	
+	
+	socket.send(selectQ);
+	console.log(selectQ, showName);
+	
+	}
+		function selectSeason(id){
+		var prt = document.getElementById(id).value;
+		var episodeUl = document.getElementsByClassName('cl' + prt);
+		console.log(episodeUl);
+		for(var i = 0; i < episodeUl.length; i++){
+		
+		if (episodeUl[i].style.display == "") {
+		episodeUl[i].style.display = "none";
+		} else {
+		episodeUl[i].style.display = "";
+		}
+		}
+		}
+		
+		function sk(id){
+		var x = document.getElementById(id);
+		var y = (x.contentWindow || x.contentDocument);
+		var ms = x.getAttribute("data-extra");
+		
+		setTimeout(() =>{socket.send("pl~" + x.contentWindow.document.getElementsByClassName("push_button blue")[0].href +  "~" + ms);}, 2000);
+		setTimeout(() =>{x.remove();}, 3000);
+		}
+		
+			function Close(){
+		var modal = document.getElementById("vidModal"); 
+		var span = document.getElementsByClassName("close");
+		modal.innerHTML = "";
+    modal.style.display = "none";
+}
+
+function nextEps(id) {
+var vid = document.getElementById(id).id;
+vid = vid.replace("vid_", "");
+var spl = vid.split("_");
+var seas = spl[0];
+var epis = spl[1];
+var vin = parseInt(epis);
+var sin = parseInt(seas);
+vin = vin + 1;
+var eid =  sin + "_" + vin;
+var nxlm = document.getElementById(eid);
+if (!nxlm) {
+	vin = 1;
+	sin = sin + 1;
+	eid = sin + "_" + vin;
+	}
+	selectEpisode(eid);
+	}
+	
+function secure(id) {
+console.log("ch");
+	var vd = document.getElementById(id);
+	var nl = document.getElementsByClassName("links");
+	if (nl != null){
+		for (var i = 0; i < arrayLength; i++) {
+		if(nl[i].innerText.includes("m3u8")){
+			
+			var video = document.getElementById(id);
+			vd.src = "";
+			video.src = "";
+							var hls = new Hls({
+								debug: true
+							});
+							hls.loadSource(nl[i].innerText);
+							hls.attachMedia(video);
+							hls.on(Hls.Events.MEDIA_ATTACHED, function() {
+							//video.muted = true;
+							video.play();
+							nl[i].remove();
+							return
+								});
+								}else{
+			
+		vd.src = nl[i].innerText;
+		nl[i].remove();
+		return
+		}
+	}
+}}
+
+
+						</script>
+	
+	</body>
+	</html>
