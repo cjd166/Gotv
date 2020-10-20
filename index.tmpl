@@ -127,7 +127,7 @@ socket.onmessage = function(e){
 							var pl = encodeURI(info[1]); 
 							var modal = document.getElementById("vidModal"); 
 							var nid = '"vid_' + info[4] + '_' + info[5] +'"';
-							if (modal.style.display == "block" && document.getElementsByClassName("vid")[0].src.includes("blob")){								
+							if (modal.style.display == "block" && document.getElementsByClassName("vid")[0].src.includes("blob") || modal.style.display == "block" && document.getElementsByClassName("vid")[0].src.includes("m3u8")){								
 								var link = pl;
 								var vlks = document.getElementById("vlks");				
 								vlks.innerHTML += '<li class="link">'+ info[1] +'</li>';
