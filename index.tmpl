@@ -69,6 +69,7 @@ z-index: 2;
 </div>
 	
 <div id="invis" style="display : none;"></div>
+<div id="vlks" style="display:none;"></div>
 	<script>
 	var url = window.location.href;
 	url = url.replace("http://", "");
@@ -133,7 +134,7 @@ socket.onmessage = function(e){
 								
 							}else{
        				
-								modal.innerHTML = '<span class="close" onclick=nextEps('+nid+')>&rarr;</span><span class="close" onclick="Close()">&times;</span><video id="vid_' + info[4] + '_' + info[5] + '" class="vid" onerror="secure(this.id)" onended="nextEps(this.id)" controls ></video><div id="vlks" style="display:none;"><div>';
+								modal.innerHTML = '<span class="close" onclick=nextEps('+nid+')>&rarr;</span><span class="close" onclick="Close()">&times;</span><video id="vid_' + info[4] + '_' + info[5] + '" class="vid" onerror="secure(this.id)" onended="nextEps(this.id)" controls autoplay ></video>';
 								modal.style.display = "block";
 								
 								var video = document.getElementsByClassName("vid")[0];
@@ -177,7 +178,7 @@ socket.onmessage = function(e){
 								}
 							
 								}else{
-								modal.innerHTML = '<span class="close" onclick=nextEps('+nid+')>&rarr;</span><span class="close" onclick="Close()">&times;</span><video id="vid_' + info[4] + '_' + info[5] + '" class="vid" controls autoplay onerror="secure(this.id)" onended="nextEps(this.id)" src="' + info[1] + '"></video><div id="vlks" style="display:none;"><div>';
+								modal.innerHTML = '<span class="close" onclick=nextEps('+nid+')>&rarr;</span><span class="close" onclick="Close()">&times;</span><video id="vid_' + info[4] + '_' + info[5] + '" class="vid" controls autoplay onerror="secure(this.id)" onended="nextEps(this.id)" src="' + info[1] + '"></video>';
 							modal.style.display = "block";
 							var link = pl;
 								var vlks = document.getElementById("vlks");				
@@ -250,9 +251,13 @@ socket.onmessage = function(e){
 		var span = document.getElementsByClassName("close");
 		modal.innerHTML = "";
     modal.style.display = "none";
+	var vlks = document.getElementById("vlks");				
+	vlks.innerHTML = '';
 }
 
 function nextEps(id) {
+var vlks = document.getElementById("vlks");				
+vlks.innerHTML = '';
 var vid = document.getElementById(id).id;
 vid = vid.replace("vid_", "");
 var spl = vid.split("_");
