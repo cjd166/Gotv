@@ -116,7 +116,7 @@ socket.onmessage = function(e){
 							showLi.innerHTML += '<ul id="ul season' + info[1] + info[3] + '">\
 								<li id="li' + info[1] + info[3] + '">\
 								<button id="' + info[3] + '" value="' + info[1] + info[3] + '" onclick="selectSeason(this.id)" >' + info[3] +'</button>\
-								<button id="dls' + info[3] + '" value="' + dsmessage + '~" onclick="downloadSeason(this.id)" >' + info[3] +'</button></li></ul>';
+								<button id="dls' + info[3] + '" value="' + dsmessage + '" onclick="downloadSeason(this.id)" >' + info[3] +'</button></li></ul>';
 							}
 							var seasonUl = document.getElementById('ul season' + info[1] + info[3]);
 								seasonUl.innerHTML += '<ul class="cl' + info[1] + info[3] + '" id="ul episodes' + info[3] + '_' + info[4] + '" style="display:none" >\
@@ -126,7 +126,7 @@ socket.onmessage = function(e){
 						case "m3u8":
 							var pl = encodeURI(info[1]); 
 							var modal = document.getElementById("vidModal"); 
-							var nid = '"vid_' + info[4] + '_' + info[5] +'"';
+							var nid = '"vid_' + info[5] + '_' + info[6] +'"';
 							if (modal.style.display == "block" && document.getElementsByClassName("vid")[0].src.includes("blob") || modal.style.display == "block" && document.getElementsByClassName("vid")[0].src.includes("m3u8")){								
 								var link = pl;
 								var vlks = document.getElementById("vlks");				
@@ -134,7 +134,7 @@ socket.onmessage = function(e){
 								
 							}else{
        				
-								modal.innerHTML = '<span class="close" onclick=nextEps('+nid+')>&rarr;</span><span class="close" onclick="Close()">&times;</span><video id="vid_' + info[4] + '_' + info[5] + '" class="vid" onerror="secure(this.id)" onended="nextEps(this.id)" controls autoplay ></video>';
+								modal.innerHTML = '<span class="close" onclick=nextEps('+nid+')>&rarr;</span><span class="close" onclick=secure('+nid+')>&#x21bb;</span><span class="close" onclick="Close()">&times;</span><video id="vid_' + info[5] + '_' + info[6] + '" class="vid" onerror="secure(this.id)" onended="nextEps(this.id)" controls autoplay ></video>';
 								modal.style.display = "block";
 								
 								var video = document.getElementsByClassName("vid")[0];
@@ -161,7 +161,7 @@ socket.onmessage = function(e){
 								}
 								}}
 						case "video":
-							var nid = '"vid_' + info[4] + '_' + info[5] + '"';
+							var nid = '"vid_' + info[5] + '_' + info[6] + '"';
 							var modal = document.getElementById("vidModal"); 
 							var link = info[1];
 							
@@ -178,7 +178,7 @@ socket.onmessage = function(e){
 								}
 							
 								}else{
-								modal.innerHTML = '<span class="close" onclick=nextEps('+nid+')>&rarr;</span><span class="close" onclick="Close()">&times;</span><video id="vid_' + info[4] + '_' + info[5] + '" class="vid" controls autoplay onerror="secure(this.id)" onended="nextEps(this.id)" src="' + info[1] + '"></video>';
+								modal.innerHTML = '<span class="close" onclick=nextEps('+nid+')>&rarr;</span><span class="close" onclick=secure('+nid+')>&#x21bb;</span><span class="close" onclick="Close()">&times;</span><video id="vid_' + info[5] + '_' + info[6] + '" class="vid" controls autoplay onerror="secure(this.id)" onended="nextEps(this.id)" src="' + info[1] + '"></video>';
 							modal.style.display = "block";
 							var link = pl;
 								var vlks = document.getElementById("vlks");				
@@ -191,8 +191,13 @@ socket.onmessage = function(e){
 						
 						case "eFrame":
 							var iv = document.getElementById('invis');
-							var ms = info[3]+ "~" +info[4]+ "~" +info[5]+ "~" +info[6]+ "~" +info[7];
+							var ms = info[2]+ "~" +info[3]+ "~" +info[4]+ "~" +info[5]+ "~" +info[6]+ "~" +info[7];
 							iv.innerHTML += '<iframe id="' + info[7] + '~' + info[1] +'" onload="sk(this.id)" data-extra="' + ms + '"src="' + info[1] + '"></iframe>';
+							break;
+						case "dFrame":
+							var iv = document.getElementById('invis');
+							var ms = info[2]+ "~" +info[3]+ "~" +info[4]+ "~" +info[5]+ "~" +info[6]+ "~" +info[7];
+							iv.innerHTML += '<iframe id="' + info[7] + '~' + info[1] +'" onload="dk(this.id)" data-extra="' + ms + '"src="' + info[1] + '"></iframe>';
 							break;
 						case "cartoon":
 							console.log(info[1] + info[2]);
@@ -236,6 +241,11 @@ socket.onmessage = function(e){
 		}
 		}
 		}
+		function downloadSeason(id){
+		var sendls = document.getElementById(id).value;
+		socket.send(sendls);
+		console.log(sendls);
+		}
 		
 		function sk(id){
 		var x = document.getElementById(id);
@@ -243,6 +253,15 @@ socket.onmessage = function(e){
 		var ms = x.getAttribute("data-extra");
 		
 		setTimeout(() =>{socket.send("pl~" + x.contentWindow.document.getElementsByClassName("push_button blue")[0].href +  "~" + ms);}, 2000);
+		setTimeout(() =>{x.remove();}, 3000);
+		}
+		
+		function dk(id){
+		var x = document.getElementById(id);
+		var y = (x.contentWindow || x.contentDocument);
+		var ms = x.getAttribute("data-extra");
+		
+		setTimeout(() =>{socket.send("dl~" + x.contentWindow.document.getElementsByClassName("push_button blue")[0].href +  "~" + ms);}, 2000);
 		setTimeout(() =>{x.remove();}, 3000);
 		}
 		
@@ -277,13 +296,14 @@ if (!nxlm) {
 	}
 	
 function secure(id) {
-console.log("ch");
 	var vd = document.getElementById(id);
-	var nl = document.getElementsByClassName("links");
+	var nl = document.getElementsByClassName("link");
+	console.log("ch", id, vd, nl);
+
 	if (nl != null){
-		for (var i = 0; i < arrayLength; i++) {
+		for (var i = 0; i < nl.length; i++) {
 		if(nl[i].innerText.includes("m3u8")){
-			
+			console.log("ok", nl[i].innerText);
 			var video = document.getElementById(id);
 			vd.src = "";
 			video.src = "";
@@ -299,7 +319,8 @@ console.log("ch");
 							return
 								});
 								}else{
-			
+						console.log("ok", nl[i].innerText);
+
 		vd.src = nl[i].innerText;
 		nl[i].remove();
 		return
